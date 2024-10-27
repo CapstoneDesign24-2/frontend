@@ -104,6 +104,10 @@ section {
     justify-content: center;
 }
 
+.goto-section .content-wrapper{
+    height: 80%;
+}
+
 .who-section {
     background: #fff;
 }

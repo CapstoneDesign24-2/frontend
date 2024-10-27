@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import Footer from './footer';
 import '../css/MainPage.css';
 
 const MainPage = () => {
@@ -113,10 +114,11 @@ const MainPage = () => {
             <div className="goto-buttons">
               <button className="goto-btn calendar">글 작성</button>
               <button className="goto-btn edit">내용 증명</button>
-              <button className="goto-btn payment">계시판</button>
+              <button className="goto-btn payment">게시판</button>
               <button className="goto-btn faq">FAQ</button>
             </div>
           </div>
+          <Footer />
         </section>
       </div>
     </div>
