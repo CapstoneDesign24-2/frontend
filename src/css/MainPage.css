@@ -1,0 +1,164 @@
+.page-wrapper {
+  background-color: #000;
+  color: #fff;
+}
+
+section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 70%;
+}
+
+.section-title {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.hero-section {
+  background-image: url('../../public/MainPage.png');
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  margin-top: 0;
+  height: 70vh;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 2;
+}
+
+.hero-section h1 {
+  font-size: 56px;
+  margin-bottom: 30px;
+}
+
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.who-section {
+  height: 30vh;
+  background: #fff;
+  color: #000;
+}
+
+.who-section p {
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 800px;
+}
+
+.what-section h2 {
+  text-align: left;
+  background: #000;
+}
+
+.what-container {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.tech-section {
+  background: #fff;
+  color: #000;
+  text-align: center;
+  height: 60vh;
+}
+
+.tech-features {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.tech-item {
+  margin-top: 30px;
+}
+
+.tech-item h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.tech-item p {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.directions-section {
+  background: #000;
+}
+
+.map-container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 40px auto 0;
+  height: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.map-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.goto-section {
+  background: #000;
+  padding-bottom: 120px;
+}
+
+.goto-buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 40px auto 0;
+}
+
+.goto-btn {
+  aspect-ratio: 1;
+  border: none;
+  border-radius: 15px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.goto-btn:hover {
+  transform: translateY(-5px);
+}
+
+.goto-btn i {
+  font-size: 32px;
+}
+
+.calendar {
+  background: #ffd6e0;
+}
+.edit {
+  background: #fff3b0;
+}
+.payment {
+  background: #c1f4c7;
+}
+.faq {
+  background: #b6e4f0;
+}
