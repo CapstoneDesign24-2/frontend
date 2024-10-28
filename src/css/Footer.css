@@ -1,66 +1,63 @@
-/* components/Footer.css */
 .footer {
-    background-color: #000;
-    color: #fff;
-    padding: 40px 20px;
-    font-size: 14px;
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
+  font-size: 14px;
 }
 
 .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .footer-info {
-    display: flex;
-    gap: 40px;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 20px;
 }
 
-.info-row {
-    display: flex;
-    gap: 10px;
-    line-height: 1.5;
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .info-label {
-    color: #848484;
+  color: #848484;
 }
 
 .info-value {
-    color: #fff;
+  color: #fff;
 }
 
 .footer-address {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
-.footer-bottom {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+.footer-address .info-item {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
 }
 
 .footer-logo {
-    height: 30px;
-    width: auto;
+  height: 18px;
+  width: auto;
 }
 
 .company-name {
-    font-weight: 500;
-    color: #fff;
-}
-
-/* 반응형 스타일 */
-@media (max-width: 768px) {
-    .footer-info {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .footer {
-        padding: 30px 15px;
-    }
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff;
 }
