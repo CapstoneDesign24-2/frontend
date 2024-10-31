@@ -1,7 +1,9 @@
 import React from 'react';
 import '../css/MainPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const MainPage = () => {
+  let navigate = useNavigate();
   return (
     <div className="page-wrapper">
       <main className="main-content">
@@ -71,20 +73,40 @@ const MainPage = () => {
           <div className="content-wrapper">
             <h2 className="section-title">Go To</h2>
             <div className="goto-buttons">
-              <button className="goto-btn calendar">
-                <h2>글 작성</h2>
+              <button
+                className="goto-btn calendar"
+                onClick={() => {
+                  navigate('/write-post');
+                }}
+              >
+                <div className="goto-title">글 작성</div>
                 <img src="/글작성.png" alt="" className="icon" />
               </button>
-              <button className="goto-btn edit">
-                <h3>내용 증명</h3>
+              <button
+                className="goto-btn edit"
+                onClick={() => {
+                  navigate('/proof');
+                }}
+              >
+                <div className="goto-title">내용 증명</div>
                 <img src="/내용증명.png" alt="" className="icon" />
               </button>
-              <button className="goto-btn payment">
-                <h3>게시판</h3>
+              <button
+                className="goto-btn payment"
+                onClick={() => {
+                  navigate('/post-list');
+                }}
+              >
+                <div className="goto-title">게시판</div>
                 <img src="/게시판.png" alt="" className="icon" />
               </button>
-              <button className="goto-btn faq">
-                <h3>FAQ</h3>
+              <button
+                className="goto-btn faq"
+                onClick={() => {
+                  navigate('/faq');
+                }}
+              >
+                <div className="goto-title">FAQ</div>
                 <img src="/FAQ.png" alt="" className="icon" />
               </button>
             </div>

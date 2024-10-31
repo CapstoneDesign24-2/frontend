@@ -1,0 +1,41 @@
+.sidebar {
+  width: 250px;
+  padding: 40px 20px 20px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+}
+
+.sidebar-main-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid black;
+  padding: 20px;
+  font-weight: bold;
+}
+
+.sidebar-title {
+  font-weight: bold;
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.sidebar-item {
+  padding-left: 15px; /* 제목과 항목 간 들여쓰기 조정 */
+}
+
+.sidebar-item a {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.sidebar-item a:hover {
+  font-weight: bold;
+}
