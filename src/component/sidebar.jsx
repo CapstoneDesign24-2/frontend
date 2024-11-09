@@ -14,7 +14,7 @@ const Sidebar = () => {
 
         <div className="sidebar-title">커뮤니티</div>
         <ListGroup.Item className="sidebar-item">
-          <Link to="">게시판</Link>
+          <Link to="/post-list">게시판</Link>
         </ListGroup.Item>
         <ListGroup.Item className="sidebar-item">
           <Link to="/write-post">글 작성하기</Link>
