@@ -30,7 +30,7 @@ const LoginPage = () => {
             <input
               type="text"
               name="id"
-              placeholder="아이디"
+              placeholder="id"
               value={formData.id}
               onChange={handleChange}
               className={styles.input}
@@ -41,7 +41,7 @@ const LoginPage = () => {
             <input
               type="password"
               name="password"
-              placeholder="비밀번호"
+              placeholder="password"
               value={formData.password}
               onChange={handleChange}
               className={styles.input}
@@ -61,7 +61,7 @@ const LoginPage = () => {
             </label>
           </div>
           <button className={styles.loginBtn} type="submit">
-            로그인
+            login
           </button>
           <div className={styles.links}>
             <a className={styles.link}>비밀번호찾기</a>

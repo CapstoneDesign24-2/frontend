@@ -24,7 +24,7 @@ const Navbar = () => {
             navigate('/login');
           }}
         >
-          로그인
+          Đăng nhập
         </div>
         <div
           className="nav-link"
@@ -32,7 +32,7 @@ const Navbar = () => {
             navigate('/signup');
           }}
         >
-          회원가입
+          gia nhập hội viên
         </div>
       </div>
     </nav>
