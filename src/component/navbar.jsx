@@ -17,14 +17,23 @@ const Navbar = () => {
         <div className="logo-text">FAR FROM GENIUS</div>
       </div>
 
-      <div
-        className="nav-links"
-        onClick={() => {
-          navigate('/login');
-        }}
-      >
-        <div className="nav-link">로그인</div>
-        <div className="nav-link">회원가입</div>
+      <div className="nav-links">
+        <div
+          className="nav-link"
+          onClick={() => {
+            navigate('/login');
+          }}
+        >
+          로그인
+        </div>
+        <div
+          className="nav-link"
+          onClick={() => {
+            navigate('/signup');
+          }}
+        >
+          회원가입
+        </div>
       </div>
     </nav>
   );

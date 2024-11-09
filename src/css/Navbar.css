@@ -1,10 +1,13 @@
+/* Base styles */
 .navbar {
   background-color: black;
   height: 10vh;
+  min-height: 60px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 16px;
+  width: 100%;
 }
 
 .logo-section {
@@ -14,6 +17,8 @@
 
 .logo {
   height: 5vh;
+  min-height: 30px;
+  max-height: 50px;
   margin-left: 8px;
   margin-right: 8px;
   cursor: pointer;
@@ -33,6 +38,9 @@
   display: flex;
   align-items: center;
   gap: 40px;
+  color: white;
+  text-decoration: none;
+  margin-right: 16px;
 }
 
 .nav-link {
@@ -40,8 +48,68 @@
   color: white;
   text-decoration: none;
   transition: color 0.2s;
+  cursor: pointer;
 }
 
 .nav-link:hover {
   color: #cccccc;
+}
+
+/* 태블릿 스타일 (768px 이하) */
+@media screen and (max-width: 768px) {
+  .logo-text {
+    font-size: 30px;
+    margin-top: 15px;
+  }
+
+  .nav-links {
+    gap: 20px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+}
+
+/* 모바일 스타일 (480px 이하) */
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 0 8px;
+  }
+
+  .logo-text {
+    font-size: 20px;
+    margin-top: 10px;
+    margin-left: 8px;
+  }
+
+  .logo {
+    height: 4vh;
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+
+  .nav-links {
+    gap: 15px;
+    margin-right: 8px;
+  }
+
+  .nav-link {
+    font-size: 14px;
+  }
+}
+
+/* 매우 작은 화면 (320px 이하) */
+@media screen and (max-width: 320px) {
+  .logo-text {
+    display: none;
+  }
+
+  .nav-links {
+    gap: 10px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
 }
