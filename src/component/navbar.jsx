@@ -1,5 +1,5 @@
 import '../css/Navbar.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   let navigate = useNavigate();
@@ -17,14 +17,23 @@ const Navbar = () => {
         <div className="logo-text">FAR FROM GENIUS</div>
       </div>
 
-      <div
-        className="nav-links"
-        onClick={() => {
-          navigate('/login');
-        }}
-      >
-        <div className="nav-link">로그인</div>
-        <div className="nav-link">회원가입</div>
+      <div className="nav-links">
+        <div
+          className="nav-link"
+          onClick={() => {
+            navigate('/login');
+          }}
+        >
+          Đăng nhập
+        </div>
+        <div
+          className="nav-link"
+          onClick={() => {
+            navigate('/signup');
+          }}
+        >
+          gia nhập hội viên
+        </div>
       </div>
     </nav>
   );

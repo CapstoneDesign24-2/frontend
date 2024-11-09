@@ -1,3 +1,76 @@
 .post-list-page {
   display: flex;
 }
+
+.content {
+  flex: 1;
+  padding: 20px;
+  width: 100%;
+}
+
+.post-container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.post-item {
+  padding: 20px;
+  border-bottom: 1px solid #e0e0e0;
+  cursor: pointer;
+}
+
+.post-item:hover {
+  background-color: #f8f9fa;
+}
+
+.post-title {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.post-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.post-info .divider {
+  margin: 0 8px;
+  color: #ddd;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  gap: 8px;
+}
+
+.pagination button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #666;
+}
+
+.pagination button:hover {
+  color: #333;
+}
+
+.pagination button.current {
+  background-color: #ffd43b;
+  color: #000;
+  border-radius: 4px;
+}
+
+.pagination button.next {
+  color: #666;
+}
+
+.pagination button.next:hover {
+  color: #333;
+}
