@@ -1,4 +1,7 @@
 import './css/App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/sandstone/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import Navbar from './component/navbar';
 import MainPage from './page/MainPage';
 import ProofPage from './page/ProofPage';
@@ -11,6 +14,7 @@ import FAQPage from './page/FAQPage';
 import PostList from './page/PostList';
 import WritePostPage from './page/WritePostPage';
 import ScrollToTop from './component/ScrollToTop';
+
 function App() {
   return (
     <div className="App">
