@@ -11,102 +11,36 @@ const MainPage = () => {
           <div className="hero-content">
             <h1>Content proof service using AI</h1>
             <p className="hero-subtitle">
-              AI 기술과 번역모델을 활용하여 법적 분쟁 및 계약 문제 해결을 위한 내용증명 작성을 자동화하고 최적화하여,
-              사용자가 쉽고 빠르게 법적 대응을 할 수 있도록 지원합니다.
+              Sử dụng công nghệ AI và mô hình dịch thuật để tự động hóa và tối ưu hóa việc lập chứng minh nội dung để
+              giải quyết tranh chấp pháp lý và vấn đề hợp đồng, hỗ trợ người sử dụng có thể ứng phó pháp lý một cách dễ
+              dàng và nhanh chóng.
             </p>
           </div>
         </section>
-
-        <section className="who-section">
-          <div className="content-wrapper">
-            <h2 className="section-title">Who We Are</h2>
-            <p>
-              파프롬지니어스는 AI 기술을 활용하여 내용 증명 작성을 자동화 및 최적화하여, 사용자가 쉽고 빠르게 법적
-              대응을 할 수 있도록 지원합니다.
-            </p>
-          </div>
-        </section>
-
-        <section className="what-section">
-          <div className="content-wrapper">
-            <h2 className="section-title">What We Do</h2>
-            <div className="what-container">
-              <img src="/WhatWeDo.png" alt="Company Location" />
-            </div>
-          </div>
-        </section>
-
-        <section className="tech-section">
-          <div className="content-wrapper">
-            <h2 className="section-title">Our Own Technology</h2>
-            <div className="tech-features">
-              <div className="tech-item">
-                <h3>자연어 처리 및 생성</h3>
-                <p>
-                  사용자가 제공한 정보를 이해 및 분석하여 법적 요구에 맞는 문서 자동 생성
-                  <br />
-                  적절한 법적 표현을 생성하며 사용자 요구에 맞는 맞춤형 내용 증명 작성
-                </p>
-              </div>
-              <div className="tech-item">
-                <h3>번역 모델 학습 및 사용</h3>
-                <p>
-                  정해진 법률 데이터를 학습시켜 모델에 적용
-                  <br />
-                  특정 용어들이 일관되게 번역되도록 지속적인 모델 개선
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="directions-section">
-          <div className="content-wrapper">
-            <h2 className="section-title">Directions</h2>
-            <div className="map-container">
-              <img src="/map.png" alt="Company Location" />
-            </div>
-          </div>
-        </section>
-
+        <div className="image-container">
+          <img src="/MainPage2.png" alt="메인 이미지" className="main-image" />
+        </div>
         <section className="goto-section">
           <div className="content-wrapper">
             <h2 className="section-title">Go To</h2>
             <div className="goto-buttons">
-              <button
-                className="goto-btn calendar"
-                onClick={() => {
-                  navigate('/write-post');
-                }}
-              >
-                <div className="goto-title">글 작성</div>
-                <img src="/글작성.png" alt="" className="icon" />
-              </button>
               <button
                 className="goto-btn edit"
                 onClick={() => {
                   navigate('/proof');
                 }}
               >
-                <div className="goto-title">내용 증명</div>
+                <div className="goto-title">Viết chứng minh nội dung</div>
                 <img src="/내용증명.png" alt="" className="icon" />
               </button>
-              <button
-                className="goto-btn payment"
-                onClick={() => {
-                  navigate('/post-list');
-                }}
-              >
-                <div className="goto-title">게시판</div>
-                <img src="/게시판.png" alt="" className="icon" />
-              </button>
+
               <button
                 className="goto-btn faq"
                 onClick={() => {
                   navigate('/faq');
                 }}
               >
-                <div className="goto-title">FAQ</div>
+                <div className="goto-title">Nhận tư vấn pháp luật</div>
                 <img src="/FAQ.png" alt="" className="icon" />
               </button>
             </div>

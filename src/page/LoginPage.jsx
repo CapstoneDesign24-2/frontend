@@ -24,7 +24,7 @@ const LoginPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <h2 className={styles.title}>회원 로그인</h2>
+        <h2 className={styles.title}>Login</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
             <input
@@ -57,7 +57,7 @@ const LoginPage = () => {
                 onChange={handleChange}
                 className={styles.checkbox}
               />
-              로그인 유지
+              Duy trì login
             </label>
           </div>
           <button className={styles.loginBtn} type="submit">
@@ -65,9 +65,10 @@ const LoginPage = () => {
           </button>
           <div className={styles.links}>
             <span className={styles.link}>Tìm mật khẩu</span>
+
             <span className={styles.divider}>|</span>
             <a href="/signup" className={styles.link}>
-              회원가입
+              gia nhập hội viên
             </a>
           </div>
         </form>

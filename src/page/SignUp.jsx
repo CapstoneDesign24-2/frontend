@@ -33,11 +33,11 @@ const SignUpPage = () => {
   return (
     <div className={styles.container}>
       <div className={styles.box}>
-        <h2 className={styles.title}>회원가입</h2>
+        <h2 className={styles.title}>gia nhập hội viên</h2>
         <form onSubmit={handleSubmit}>
           <div className={styles.inputGroup}>
             <label className={styles.label}>
-              아이디 <span className={styles.required}>*</span>
+              Id <span className={styles.required}>*</span>
             </label>
             <div className={styles.inputWithButton}>
               <input
@@ -50,14 +50,14 @@ const SignUpPage = () => {
                 required
               />
               <button type="button" className={styles.checkButton} onClick={idValidate}>
-                중복 확인
+                Kiểm tra trùng lặp
               </button>
             </div>
           </div>
 
           <div className={styles.inputGroup}>
             <label className={styles.label}>
-              비밀번호 <span className={styles.required}>*</span>
+              Password <span className={styles.required}>*</span>
             </label>
             <input
               type="password"
@@ -72,7 +72,7 @@ const SignUpPage = () => {
 
           <div className={styles.inputGroup}>
             <label className={styles.label}>
-              비밀번호 확인 <span className={styles.required}>*</span>
+              Check the password <span className={styles.required}>*</span>
             </label>
             <input
               type="password"
@@ -87,7 +87,7 @@ const SignUpPage = () => {
 
           <div className={styles.inputGroup}>
             <label className={styles.label}>
-              닉네임 <span className={styles.required}>*</span>
+              Nickname <span className={styles.required}>*</span>
             </label>
             <div className={styles.inputWithButton}>
               <input
@@ -100,13 +100,13 @@ const SignUpPage = () => {
                 required
               />
               <button type="button" className={styles.checkButton} onClick={nickNameValidate}>
-                중복 확인
+                Kiểm tra trùng lặp
               </button>
             </div>
           </div>
 
           <div className={styles.inputGroup}>
-            <label className={styles.label}>이메일</label>
+            <label className={styles.label}>Email</label>
             <input
               type="email"
               name="email"
@@ -119,7 +119,7 @@ const SignUpPage = () => {
           </div>
 
           <button type="submit" className={styles.submitButton}>
-            완료
+            sự hoàn thành
           </button>
         </form>
       </div>
