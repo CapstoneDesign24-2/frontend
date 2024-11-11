@@ -1,7 +1,7 @@
 import './css/App.css';
 import Navbar from './component/navbar';
 import MainPage from './page/MainPage';
-import ProofPage from './page/ProofPage';
+import ProofResultPage from './page/ProofResultPage';
 import Footer from './component/footer';
 import { Routes, Route } from 'react-router-dom';
 import LoginPage from './page/LoginPage';
@@ -19,7 +19,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/proof" element={<ProofPage />} />
+        <Route path="/proof" element={<ProofResultPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/faq" element={<FAQPage />} />
