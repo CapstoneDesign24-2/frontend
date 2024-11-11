@@ -1,8 +1,10 @@
 import React from 'react';
 import Sidebar from '../component/sidebar';
+import { useNavigate } from 'react-router-dom';
 import '../css/PostList.css';
 
 const PostList = () => {
+  let navigate = useNavigate();
   const dummyPosts = [
     { id: 1, title: '임금을 제대로 지불 받지 못했어요', author: 'tla**', type: '비공개', date: '2024.10.22' },
     {
@@ -46,7 +48,13 @@ const PostList = () => {
       <div className="content">
         <div className="post-container">
           {dummyPosts.map((post) => (
-            <div key={post.id} className="post-item">
+            <div
+              key={post.id}
+              className="post-item"
+              onClick={() => {
+                navigate('/post-detail/' + post.id);
+              }}
+            >
               <div className="post-title">{post.title}</div>
               <div className="post-info">
                 <span className="author">{post.author}</span>
