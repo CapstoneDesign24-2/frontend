@@ -64,7 +64,7 @@ const LoginPage = () => {
             login
           </button>
           <div className={styles.links}>
-            <a className={styles.link}>Tìm mật khẩu</a>
+            <span className={styles.link}>Tìm mật khẩu</span>
             <span className={styles.divider}>|</span>
             <a href="/signup" className={styles.link}>
               gia nhập hội viên
