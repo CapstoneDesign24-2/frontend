@@ -1,0 +1,84 @@
+.post-detail-page {
+  display: flex;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+}
+
+.post-detail-container {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  padding: 32px;
+}
+
+.post-header {
+  border-bottom: 2px solid #333;
+  padding-bottom: 20px;
+  margin-bottom: 32px;
+}
+
+.post-title {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 16px;
+  font-weight: normal;
+}
+
+.post-info {
+  font-size: 14px;
+  color: #666;
+}
+
+.post-info .divider {
+  margin: 0 8px;
+  color: #ddd;
+}
+
+.post-content {
+  min-height: 300px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.post-content p {
+  margin-bottom: 16px;
+}
+
+.post-actions {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid #e0e0e0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.action-button {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background: white;
+  color: #333;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.action-button:hover {
+  background: #f8f9fa;
+}
+
+.list-button {
+  padding: 8px 16px;
+  border: none;
+  background: #ffd43b;
+  color: #000;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 8px;
+}
+
+.list-button:hover {
+  background: #fcc419;
+}
