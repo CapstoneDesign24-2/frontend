@@ -10,6 +10,7 @@ import FAQPage from './page/FAQPage';
 import PostList from './page/PostList';
 import WritePostPage from './page/WritePostPage';
 import ScrollToTop from './component/ScrollToTop';
+import PostDetail from './page/PostDetail';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/faq" element={<FAQPage />} />
         <Route path="/post-list" element={<PostList />} />
         <Route path="/write-post" element={<WritePostPage />} />
+        <Route path="/post-detail/:id" element={<PostDetail />} />
       </Routes>
       <Footer />
     </div>
