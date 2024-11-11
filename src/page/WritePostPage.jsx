@@ -25,18 +25,23 @@ const WritePost = () => {
       <div className="content">
         <div className="write-container">
           <div className="title-input">
-            <input type="text" placeholder="제목" value={title} onChange={(e) => setTitle(e.target.value)} />
+            <input
+              type="text"
+              placeholder="Hãy viết tiêu đề."
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+            />
           </div>
 
           <div className="content-input">
-            <textarea placeholder="내용을 입력하세요." value={content} onChange={handleContentChange} />
+            <textarea placeholder="Hãy nhập nội dung." value={content} onChange={handleContentChange} />
             <div className="char-count">
-              ({charCount} / {MAX_CHARS}자)
+              ({charCount} / {MAX_CHARS})
             </div>
           </div>
 
           <div className="button-container">
-            <button onClick={handleSubmit}>완료</button>
+            <button onClick={handleSubmit}>sự hoàn thành</button>
           </div>
         </div>
       </div>
