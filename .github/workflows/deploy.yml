@@ -18,6 +18,15 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Check EC2 SSH Key
+        run: |
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "EC2 SSH Key is not set in GitHub Secrets."
+            exit 1
+          else
+            echo "EC2 SSH Key is available."
+          fi
+
       - name: Install dependencies
         run: npm install
 
@@ -35,7 +44,7 @@ jobs:
           echo "$EC2_SSH_KEY" > ec2_key.pem
           chmod 600 ec2_key.pem
           scp -i ec2_key.pem -r build/ ec2-user@3.27.71.229:/home/ec2-user/react-app
-          
+
       - name: Restart Nginx on EC2
         env:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
