@@ -3,7 +3,7 @@ name: Deploy to EC2
 on:
   push:
     branches:
-      - main  # main 브랜치에 push할 때만 작동
+      - main
 
 jobs:
   deploy:
@@ -33,22 +33,21 @@ jobs:
             echo "EC2 SSH Key is available."
           fi
 
-      - name: Copy files to EC2
-        env:
-          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
+      - name: Setup SSH
         run: |
-          if [ -z "$EC2_SSH_KEY" ]; then
-            echo "Error: EC2 SSH Key is missing!"
-            exit 1
-          fi
-          echo "$EC2_SSH_KEY" > ec2_key.pem
-          chmod 600 ec2_key.pem
-          scp -i ec2_key.pem -r build/ ec2-user@3.27.71.229:/home/ec2-user/react-app
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Copy files to EC2
+        run: |
+          scp -i ~/.ssh/id_rsa -r build/* ec2-user@3.27.71.229:/home/ec2-user/react-app/
 
       - name: Restart Nginx on EC2
-        env:
-          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
         run: |
-          ssh -i ec2_key.pem ec2-user@3.27.71.229 'sudo systemctl restart nginx'
-          rm ec2_key.pem  # 최종적으로 SSH 키 파일 삭제
+          ssh -i ~/.ssh/id_rsa ec2-user@3.27.71.229 'sudo systemctl restart nginx'
 
+      - name: Cleanup
+        if: always()
+        run: |
+          rm -rf ~/.ssh/id_rsa
