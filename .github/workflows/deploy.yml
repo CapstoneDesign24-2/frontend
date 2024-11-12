@@ -40,7 +40,6 @@ jobs:
           chmod 600 ~/.ssh/id_rsa
           
           ssh-keyscan -H 3.27.71.229 >> ~/.ssh/known_hosts
-          
           chmod 644 ~/.ssh/known_hosts
 
       - name: Copy files to EC2
@@ -56,3 +55,4 @@ jobs:
         run: |
           rm -rf ~/.ssh/id_rsa
           rm -rf ~/.ssh/known_hosts
+          
