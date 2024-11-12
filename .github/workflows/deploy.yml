@@ -36,20 +36,18 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/ec2_key.pem
-          chmod 600 ~/.ssh/ec2_key.pem
-          echo -e "Host *\n\tStrictHostKeyChecking no\n\tUserKnownHostsFile=/dev/null" > ~/.ssh/config
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
 
       - name: Copy files to EC2
         run: |
-          scp -i ~/.ssh/ec2_key.pem -r build/* ec2-user@3.27.71.229:/home/ec2-user/react-app/
+          scp -i ~/.ssh/id_rsa -r build/* ec2-user@3.27.71.229:/home/ec2-user/react-app/
 
       - name: Restart Nginx on EC2
         run: |
-          ssh -i ~/.ssh/ec2_key.pem ec2-user@3.27.71.229 'sudo systemctl restart nginx'
+          ssh -i ~/.ssh/id_rsa ec2-user@3.27.71.229 'sudo systemctl restart nginx'
 
       - name: Cleanup
         if: always()
         run: |
-          rm -rf ~/.ssh/ec2_key.pem
-          rm -rf ~/.ssh/config
+          rm -rf ~/.ssh/id_rsa
