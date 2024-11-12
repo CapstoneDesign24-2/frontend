@@ -18,6 +18,12 @@ jobs:
         with:
           node-version: '16'
 
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
       - name: Check EC2 SSH Key
         run: |
           if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
@@ -26,12 +32,6 @@ jobs:
           else
             echo "EC2 SSH Key is available."
           fi
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
-        run: npm run build
 
       - name: Copy files to EC2
         env:
