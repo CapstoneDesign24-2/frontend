@@ -24,6 +24,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Check EC2 SSH Key
+        run: |
+          if [ -z "${{ secrets.EC2_SSH_KEY }}" ]; then
+            echo "EC2 SSH Key is not set in GitHub Secrets."
+            exit 1
+          else
+            echo "EC2 SSH Key is available."
+          fi
+
       - name: Copy files to EC2
         env:
           EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
