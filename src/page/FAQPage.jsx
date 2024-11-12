@@ -4,7 +4,7 @@ import '../css/FAQPage.css';
 const FAQPage = () => {
   const faqItems = [
     {
-      question: '경은 어떻게 하나요?',
+      question: '언어 변경은 어떻게 하나요?',
       answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
     },
     {
