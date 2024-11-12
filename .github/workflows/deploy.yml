@@ -33,11 +33,14 @@ jobs:
             echo "EC2 SSH Key is available."
           fi
 
-      - name: Setup SSH
+      - name: Setup SSH and known_hosts
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
+          
+          ssh-keyscan -H 3.27.71.229 >> ~/.ssh/known_hosts
+          chmod 644 ~/.ssh/known_hosts
 
       - name: Copy files to EC2
         run: |
@@ -51,3 +54,5 @@ jobs:
         if: always()
         run: |
           rm -rf ~/.ssh/id_rsa
+          rm -rf ~/.ssh/known_hosts
+          
