@@ -9,7 +9,7 @@ const Sidebar = () => {
       <ListGroup variant="flush">
         <div className="sidebar-title">chứng minh nội dung</div>
         <ListGroup.Item className="sidebar-item">
-          <Link to="/proof">Viết chứng minh nội dung</Link>
+          <Link to="/proof-form">Viết chứng minh nội dung</Link>
         </ListGroup.Item>
 
         <div className="sidebar-title">cộng đồng</div>

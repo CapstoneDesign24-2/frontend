@@ -1,6 +1,6 @@
 import Sidebar from '../component/sidebar';
 import '../css/ProofPage.css';
-import ProofResult from '../component/ProofResult';
+import ProofResult from '../component/proof/ProofResult';
 
 const ProofResultPage = () => {
   return (
