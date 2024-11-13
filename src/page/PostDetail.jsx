@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../component/sidebar';
 import '../css/PostDetail.css';
 
 const PostDetail = () => {
+  const navigate = useNavigate();
   const dummyPost = {
     id: 1,
     title: '어쩌구',
@@ -40,7 +42,14 @@ const PostDetail = () => {
           <div className="post-actions">
             <button className="action-button">수정</button>
             <button className="action-button">삭제</button>
-            <button className="list-button">목록</button>
+            <button
+              className="list-button"
+              onClick={() => {
+                navigate('/post-list');
+              }}
+            >
+              목록
+            </button>
           </div>
         </div>
       </div>

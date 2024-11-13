@@ -17,6 +17,7 @@ const WritePost = () => {
   };
 
   const handleSubmit = () => {
+    //게시글 작성 api 작성 필요
     console.log({ title, content });
   };
   return (
