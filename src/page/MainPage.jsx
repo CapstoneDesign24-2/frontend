@@ -27,7 +27,7 @@ const MainPage = () => {
               <button
                 className="goto-btn edit"
                 onClick={() => {
-                  navigate('/proof');
+                  navigate('/proof-form');
                 }}
               >
                 <div className="goto-title">Viết chứng minh nội dung</div>

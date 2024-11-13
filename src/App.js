@@ -11,6 +11,7 @@ import PostList from './page/PostList';
 import WritePostPage from './page/WritePostPage';
 import ScrollToTop from './component/ScrollToTop';
 import PostDetail from './page/PostDetail';
+import ProofFormPage from './page/ProofFormPage';
 
 function App() {
   return (
@@ -19,7 +20,8 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<MainPage />} />
-        <Route path="/proof" element={<ProofResultPage />} />
+        <Route path="/proof-form" element={<ProofFormPage />} />
+        <Route path="/proof-result" element={<ProofResultPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignUpPage />} />
         <Route path="/faq" element={<FAQPage />} />

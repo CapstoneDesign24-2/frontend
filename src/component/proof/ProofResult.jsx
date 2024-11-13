@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
-import '../css/ProofResult.css';
+import '../../css/ProofResult.css';
 
 //서버에서 받을 데이터 예시
 const data = {

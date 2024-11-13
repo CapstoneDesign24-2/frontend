@@ -4,24 +4,25 @@ import '../css/FAQPage.css';
 const FAQPage = () => {
   const faqItems = [
     {
-      question: '언어 변경은 어떻게 하나요?',
-      answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
+      question: 'Chứng minh nội dung là gì?',
+      answer:
+        'Chứng minh nội dung là văn bản có hiệu lực của văn bản chính thức, có hiệu lực gây áp lực lên đối phương thực hiện nghĩa vụ nợ.',
     },
     {
-      question: '저녁 뭐 먹을까요...',
-      answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
+      question: 'Bạn có thể tin tưởng vào việc tự động viết chứng minh nội dung không?',
+      answer:
+        'Đây là dịch vụ do luật sư trực tiếp làm, nếu trả lời các câu hỏi sẽ được lập chứng minh nội dung phù hợp với luật pháp.',
     },
     {
-      question: '내용 증명 로직 부분 디자인이 너무 막막해요...',
-      answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
+      question: 'Tôi phải gửi chứng minh nội dung như thế nào?',
+      answer:
+        'Bạn phải đến bưu điện để chuyển phát hoặc gửi đi bằng điện tử.\n' +
+        'Nếu bạn muốn nhận sự giúp đỡ trong việc gửi, vui lòng đăng ký tại balaw.dhlaw@gmail.com .',
     },
     {
-      question: '여기도 10개 보이게 할까요?',
-      answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
-    },
-    {
-      question: '심플한 걸 좋아해서 심플하게 하고 있는데 너무 심플해서 미쳐버릴 것 같아요.',
-      answer: '오른쪽 상단 화살표를 누르시면 KOR / 中国人/ Việt 중에 언어를 선택하실 수 있습니다.',
+      question: 'Làm thế nào để sử dụng cộng đồng?',
+      answer:
+        'Hãy để lại những câu hỏi thắc mắc bằng ngôn ngữ thoải mái (Hàn Quốc, Trung Quốc, Việt Nam), luật sư sẽ trả lời đúng theo ngôn ngữ.',
     },
   ];
   return (
