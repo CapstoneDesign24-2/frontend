@@ -15,6 +15,14 @@ const MainPage = () => {
               giải quyết tranh chấp pháp lý và vấn đề hợp đồng, hỗ trợ người sử dụng có thể ứng phó pháp lý một cách dễ
               dàng và nhanh chóng.
             </p>
+            <div
+              className="hero-btn"
+              onClick={() => {
+                navigate('/proof-form');
+              }}
+            >
+              Bắt đầu
+            </div>
           </div>
         </section>
         <div className="image-container">

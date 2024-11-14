@@ -41,6 +41,8 @@ section {
   max-width: 800px;
   margin: 0 auto;
   z-index: 2;
+  text-align: center;
+  padding: 0 20px; /* 반응형을 위해 좌우 여백 추가 */
 }
 
 .hero-section h1 {
@@ -51,6 +53,21 @@ section {
 .hero-subtitle {
   font-size: 18px;
   line-height: 1.6;
+}
+
+.hero-btn {
+  background: #ffd400;
+  color: black;
+  width: 50%;
+  font-weight: bolder;
+  font-size: 24px;
+  border: none;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 15px;
+  margin: 20px auto 0; /* 상단 여백 추가, 가운데 정렬 */
+  display: inline-block; /* 버튼을 inline-block으로 설정 */
 }
 
 .image-container {
