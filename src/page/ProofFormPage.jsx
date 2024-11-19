@@ -32,7 +32,7 @@ const ProofFormPage = () => {
   const [performanceData, setPerformanceData] = useState({
     contractDate: '',
     contractName: '',
-    signDate: '',
+    signContent: '',
     obligation: '',
   });
 
