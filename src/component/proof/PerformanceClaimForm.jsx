@@ -33,13 +33,13 @@ export const PerformanceClaimForm = ({ performanceData, setPerformanceData }) =>
         />
       </div>
       <br />
-      <h3>6. Vui lòng nhập ngày đã ký hợp đồng.</h3>
+      <h3>6. Vui lòng nhập nội dung hợp đồng.</h3>
       <div className="form-group">
         <input
-          type="date"
+          type="text"
           name="signDate"
           placeholder="Ngày đã ký hợp đồng"
-          value={performanceData.signDate}
+          value={performanceData.signContent}
           onChange={handleInputChange}
         />
       </div>

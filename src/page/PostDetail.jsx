@@ -7,14 +7,16 @@ const PostDetail = () => {
   const navigate = useNavigate();
   const dummyPost = {
     id: 1,
-    title: '어쩌구',
-    author: 'dls**',
+    title: 'Kiểm tra đầu tiên',
+    author: 'nguyen**',
     date: '2024.10.22',
-    type: '비공개',
-    content: `안녕하세요.
-    
-어쩌구 저쩌구 어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구
-어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구어쩌구 저쩌구`,
+    type: 'Riêng tư',
+    content: `Xin chào!,
+    Gần đây, tôi gặp phải một tai nạn giao thông và không hiểu rõ về quy trình xử lý bảo hiểm cũng như các thủ tục pháp lý liên quan.,    
+    Đây là lần đầu tiên tôi gặp tai nạn nên không biết phải làm thế nào, từ việc báo cáo cảnh sát đến nộp đơn yêu cầu bảo hiểm.,
+    Quý vị có thể hướng dẫn cho tôi quy trình cần thiết được không",
+    Và nếu có những điều cần chú ý về mặt pháp lý, xin vui lòng cho tôi biết thêm.,
+    Cảm ơn rất nhiều!`,
   };
 
   return (
