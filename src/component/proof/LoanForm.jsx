@@ -36,8 +36,8 @@ const LoanForm = ({ loanData, setLoanData }) => {
             type="radio"
             name="partialReturn"
             value="true"
-            checked={loanData.partialReturn === 'true'}
-            onChange={handleInputChange}
+            checked={loanData.partialReturn === true}
+            onChange={(e) => handleInputChange(e, setLoanData)}
           />{' '}
           Có
         </label>
@@ -46,8 +46,8 @@ const LoanForm = ({ loanData, setLoanData }) => {
             type="radio"
             name="partialReturn"
             value="false"
-            checked={loanData.partialReturn === 'false'}
-            onChange={handleInputChange}
+            checked={loanData.partialReturn === false}
+            onChange={(e) => handleInputChange(e, setLoanData)}
           />{' '}
           Không
         </label>

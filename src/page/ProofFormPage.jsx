@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import Sidebar from '../component/sidebar';
 import LoanForm from '../component/proof/LoanForm';
 import DepositReturnForm from '../component/proof/DepositReturnForm';
@@ -8,6 +9,8 @@ import PerformanceClaimForm from '../component/proof/PerformanceClaimForm';
 import '../css/ProofFormPage.css';
 
 const ProofFormPage = () => {
+  const navigate = useNavigate();
+
   const [selectedType, setSelectedType] = useState(null);
   const [senderInfo, setSenderInfo] = useState({ name: '', phone: '', address: '' });
   const [receiverInfo, setReceiverInfo] = useState({ name: '', phone: '', address: '' });
@@ -43,10 +46,105 @@ const ProofFormPage = () => {
 
   const handleInputChange = (e, setInfo) => {
     const { name, value } = e.target;
-    setInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
+
+    const parsedValue = name === 'partialReturn' ? value === 'true' : value;
+
+    setInfo((prevInfo) => ({
+      ...prevInfo,
+      [name]: parsedValue,
+    }));
+  };
+
+  const validateFormData = () => {
+    const isSenderInfoValid = senderInfo.name && senderInfo.phone && senderInfo.address;
+    const isReceiverInfoValid = receiverInfo.name && receiverInfo.phone && receiverInfo.address;
+
+    if (!isSenderInfoValid) {
+      alert('Vui lòng nhập đầy đủ thông tin người gửi (Tên, Số điện thoại, Địa chỉ).');
+      return false;
+    }
+
+    if (!isReceiverInfoValid) {
+      alert('Vui lòng nhập đầy đủ thông tin người nhận (Tên, Số điện thoại, Địa chỉ).');
+      return false;
+    }
+
+    if (selectedType === 'Khoản vay') {
+      if (!loanData.amount || isNaN(Number(loanData.amount))) {
+        alert('Số tiền vay (amount) phải là một số.');
+        return false;
+      }
+      if (!loanData.date) {
+        alert('Vui lòng nhập ngày vay (date).');
+        return false;
+      }
+      if (loanData.partialReturn === 'true') {
+        if (!loanData.partialAmount || isNaN(Number(loanData.partialAmount))) {
+          alert('Số tiền trả từng phần (partialAmount) phải là một số.');
+          return false;
+        }
+        if (!loanData.partialDate) {
+          alert('Vui lòng nhập ngày trả từng phần (partialDate).');
+          return false;
+        }
+      }
+    } else if (selectedType === 'Hoàn trả tiền đặt cọc thuê nhà' || selectedType === 'Hủy hợp đồng thuê') {
+      const data = selectedType === 'Hoàn trả tiền đặt cọc thuê nhà' ? depositReturnData : terminationData;
+
+      if (!data.depositAmount || isNaN(Number(data.depositAmount))) {
+        alert('Số tiền đặt cọc (depositAmount) phải là một số.');
+        return false;
+      }
+      if (!data.endReason) {
+        alert('Vui lòng nhập lý do kết thúc hợp đồng (endReason).');
+        return false;
+      }
+      if (!data.contractDate) {
+        alert('Vui lòng nhập ngày ký hợp đồng (contractDate).');
+        return false;
+      }
+      if (!data.returnDate) {
+        alert('Vui lòng nhập ngày hoàn trả (returnDate).');
+        return false;
+      }
+    } else if (selectedType === 'Yêu cầu thực hiện hợp đồng') {
+      if (!performanceData.contractDate) {
+        alert('Vui lòng nhập ngày ký hợp đồng (contractDate).');
+        return false;
+      }
+      if (!performanceData.contractName) {
+        alert('Vui lòng nhập tên hợp đồng (contractName).');
+        return false;
+      }
+      if (!performanceData.signContent) {
+        alert('Vui lòng nhập nội dung hợp đồng (signContent).');
+        return false;
+      }
+      if (!performanceData.obligation) {
+        alert('Vui lòng nhập nghĩa vụ phải thực hiện (obligation).');
+        return false;
+      }
+    } else {
+      alert('Vui lòng chọn một loại hợp đồng hợp lệ.');
+      return false;
+    }
+
+    return true;
   };
 
   const handleSubmit = async () => {
+    if (!validateFormData()) {
+      return;
+    }
+
+    if (selectedType === 'Khoản vay' && !loanData.partialReturn) {
+      setLoanData((prev) => ({
+        ...prev,
+        partialAmount: 0,
+        partialDate: '',
+      }));
+    }
+
     const formData = {
       senderInfo,
       receiverInfo,
@@ -55,28 +153,29 @@ const ProofFormPage = () => {
         selectedType === 'Khoản vay'
           ? loanData
           : selectedType === 'Hoàn trả tiền đặt cọc thuê nhà'
-          ? depositReturnData
-          : selectedType === 'Hủy hợp đồng thuê'
-          ? terminationData
-          : performanceData,
+            ? depositReturnData
+            : selectedType === 'Hủy hợp đồng thuê'
+              ? terminationData
+              : performanceData,
     };
 
-    console.log('제출 데이터:', formData);
-
     try {
-      // API 요청
-      const response = await axios.post('http://13.239.192.116:5000/create', formData, {
+      const response = await axios.post('/create', formData, {
         headers: {
-          'Content-Type': 'application/json', // JSON 데이터 전송
+          'Content-Type': 'application/json',
         },
-        withCredentials: true
+        withCredentials: true,
       });
 
-      // 요청 성공 시 처리
-      console.log('응답 데이터:', response.data);
-      alert('데이터가 성공적으로 전송되었습니다!');
+      const resultData = {
+        sender: senderInfo,
+        receiver: receiverInfo,
+        subject: response.data.subject,
+        content: response.data.content,
+      };
+
+      navigate('/proof-result', { state: resultData });
     } catch (error) {
-      // 요청 실패 시 처리
       console.error('요청 중 오류 발생:', error);
       alert('데이터 전송 중 문제가 발생했습니다.');
     }

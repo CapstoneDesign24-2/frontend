@@ -37,7 +37,7 @@ export const PerformanceClaimForm = ({ performanceData, setPerformanceData }) =>
       <div className="form-group">
         <input
           type="text"
-          name="signDate"
+          name="signContent"
           placeholder="Ngày đã ký hợp đồng"
           value={performanceData.signContent}
           onChange={handleInputChange}
