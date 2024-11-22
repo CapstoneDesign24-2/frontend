@@ -160,7 +160,7 @@ const ProofFormPage = () => {
     };
 
     try {
-      const response = await axios.post('/create', formData, {
+      const response = await axios.post('http://13.239.192.116:5000/create', formData, {
         headers: {
           'Content-Type': 'application/json',
         },
