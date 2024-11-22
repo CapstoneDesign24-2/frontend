@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Sidebar from '../component/sidebar';
 import LoanForm from '../component/proof/LoanForm';
 import DepositReturnForm from '../component/proof/DepositReturnForm';
@@ -45,7 +46,7 @@ const ProofFormPage = () => {
     setInfo((prevInfo) => ({ ...prevInfo, [name]: value }));
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     const formData = {
       senderInfo,
       receiverInfo,
@@ -54,13 +55,31 @@ const ProofFormPage = () => {
         selectedType === 'Khoản vay'
           ? loanData
           : selectedType === 'Hoàn trả tiền đặt cọc thuê nhà'
-            ? depositReturnData
-            : selectedType === 'Hủy hợp đồng thuê'
-              ? terminationData
-              : performanceData,
+          ? depositReturnData
+          : selectedType === 'Hủy hợp đồng thuê'
+          ? terminationData
+          : performanceData,
     };
+
     console.log('제출 데이터:', formData);
-    // api 전송 로직 필요
+
+    try {
+      // API 요청
+      const response = await axios.post('http://13.239.192.116:5000/create', formData, {
+        headers: {
+          'Content-Type': 'application/json', // JSON 데이터 전송
+        },
+        withCredentials: true
+      });
+
+      // 요청 성공 시 처리
+      console.log('응답 데이터:', response.data);
+      alert('데이터가 성공적으로 전송되었습니다!');
+    } catch (error) {
+      // 요청 실패 시 처리
+      console.error('요청 중 오류 발생:', error);
+      alert('데이터 전송 중 문제가 발생했습니다.');
+    }
   };
 
   return (

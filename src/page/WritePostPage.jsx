@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import Sidebar from '../component/sidebar';
 import '../css/WritePage.css';
 
@@ -16,10 +17,30 @@ const WritePost = () => {
     }
   };
 
-  const handleSubmit = () => {
-    //게시글 작성 api 작성 필요
-    console.log({ title, content });
+  const handleSubmit = async () => {
+    // 게시글 작성 API 호출
+    const postData = {
+      title,
+      content,
+    };
+
+    try {
+      const response = await axios.post('http://13.239.192.116:5000/', postData, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      // 성공 응답 처리
+      console.log('게시글 작성 성공:', response.data);
+      alert('게시글이 성공적으로 작성되었습니다.');
+    } catch (error) {
+      // 오류 처리
+      console.error('게시글 작성 중 오류 발생:', error);
+      alert('게시글 작성 중 문제가 발생했습니다. 다시 시도해주세요.');
+    }
   };
+
   return (
     <div className="write-post-page">
       <Sidebar />
