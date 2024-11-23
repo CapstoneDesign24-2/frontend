@@ -1,10 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import axios from 'axios';
 import '../../css/ProofResult.css';
 
 const ProofResult = ({ data }) => {
   const contentRef = useRef(null);
+  const [translatedData, setTranslatedData] = useState(null); // 번역 데이터 상태
+  const [loading, setLoading] = useState(false); // 로딩 상태
+  const [showTranslation, setShowTranslation] = useState(false); // 번역된 내용을 보여줄지 여부
 
   const downloadAsPDF = async () => {
     try {
@@ -37,14 +41,36 @@ const ProofResult = ({ data }) => {
       pdf.save(`내용증명서_${new Date().toLocaleDateString()}.pdf`);
     } catch (error) {
       console.error('PDF 생성 중 오류 발생:', error);
-      alert(`PDF 생성 중 오류가 발생했습니다: ${error.message}`);
+      alert(`Có lỗi trong khi tạo PDF: ${error.message}`);
+    }
+  };
+
+  const handleTranslate = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post('http://13.239.192.116:5000/translate', {
+        content: data.content,
+        subject: data.subject,
+      });
+      setTranslatedData(response.data);
+      setShowTranslation(true);
+    } catch (error) {
+      console.error('번역 요청 중 오류 발생:', error);
+      alert('Đã phát sinh vấn đề khi yêu cầu dịch thuật.');
+    } finally {
+      setLoading(false); // 로딩 상태 종료
     }
   };
 
   return (
     <div className="proof-result">
+      {loading && (
+        <div className="spinner-overlay">
+          <div className="spinner"></div>
+        </div>
+      )}
       <div className="proof-paper" ref={contentRef}>
-        <h1 className="title">내용 증명</h1>
+        <h1 className="title">{showTranslation ? translatedData?.t_subject : data?.subject || ''}</h1>
 
         <table className="info-table">
           <tbody>
@@ -88,14 +114,18 @@ const ProofResult = ({ data }) => {
           <tbody>
             <tr>
               <td className="person-type">제목</td>
-              <td className="value">{data?.subject || ''}</td>
+              <td className="value">{showTranslation ? translatedData?.t_subject : data?.subject || ''}</td>
             </tr>
           </tbody>
         </table>
 
         <div className="content-section">
           <div className="content-label">내용</div>
-          <div className="content-box">{data?.content.join('\n') || ''}</div>
+          <div className="content-box">
+            {(showTranslation ? translatedData?.t_content : data?.content || []).map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </div>
         </div>
 
         <div className="date-section">
@@ -104,9 +134,18 @@ const ProofResult = ({ data }) => {
         </div>
       </div>
 
-      <div className="download-section">
+      <div className="button-section">
         <button onClick={downloadAsPDF} className="download-button">
-          PDF 다운로드
+          Download PDF
+        </button>
+        <button
+          onClick={() => {
+            if (!translatedData) handleTranslate();
+            else setShowTranslation((prev) => !prev);
+          }}
+          className="translate-button"
+        >
+          {showTranslation ? 'Show Original' : 'Show Translation'}
         </button>
       </div>
     </div>
